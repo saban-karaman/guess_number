@@ -1,32 +1,34 @@
 var pcNumb = Math.floor(Math.random()*100);
-document.write(pcNumb);
+// document.write(pcNumb);
 var inputUser =document.querySelector("#number");
-console.log(inputUser);
+// console.log(inputUser);
 var check = document.querySelector("#check");
 
-
+let counter = 0;
 function guess() {
-    let counter = 0;
+    
     x =parseInt(inputUser.value);
     if (x < pcNumb) {
         document.querySelector("#result").innerHTML = "your guess is lower"
-        counter += 1;
+        counter ++;
         document.querySelector("#attempt").innerHTML = `${counter}`
         if (counter === 5) {
             alert("You Lose!!!");
         }
     } else if(x > pcNumb){
         document.querySelector("#result").innerHTML = "your guess is higher"
-        counter += 1;
+        counter ++;
         document.querySelector("#attempt").innerHTML = `${counter}`
         if (counter === 5) {
             alert("You Lose!!!");
         }
-    } else {
+    } else if (x === pcNumb){
+        document.querySelector("#attempt").innerHTML = `${counter}`
         document.querySelector("#result").innerHTML = "Congrat!"
         alert("You win!!!");
+        
     }
-    
+    console.log(counter);
 }
 
 
